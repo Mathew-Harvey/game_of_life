@@ -8,12 +8,13 @@
 }
 body{
     background: #000;    
+    max-width: 1920px;
 }
 
 section{
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,19 +22,19 @@ section{
     padding: 10px;
 
 }
-
-#gameOfLife{
-
-
-    display: flex;
+#heading{
     justify-content: center;
-    object-fit: cover;
-    pointer-events: none;
-    
-    
-
-
+    align-items: center;
+    overflow: hidden;
+    z-index: 3;
 }
+
+ 
+    
+    
+
+
+
 h1{
     color:#fff;
     display: flex;
@@ -42,6 +43,7 @@ h1{
     pointer-events: none;
     padding-top: 5%;
     padding-bottom: 0%;
+    z-index: 2;
 }
 h2{
     position: relative;
@@ -49,5 +51,55 @@ h2{
     font-size: 1.2em;
     padding-left: 5%;
     padding-right: 5%;
+    padding-top: 5%;
 
 }
+
+
+
+.content{
+    text-align: justify;
+}
+
+ol{
+    margin-left: 5%;
+}
+
+#resetButton {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+    
+}
+
+.myButton {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background-color:#e0e0e0;
+	border-radius:15px;
+	border:2px solid #c2bfb7;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:14px 76px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background-color:#ffffff;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+ 
+  

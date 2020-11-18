@@ -21,7 +21,7 @@
 
 
     function setup() {
-        var canvas = createCanvas(1200, 1000)
+        var canvas = createCanvas(1920, 1080)
         canvas.parent('gameOfLife')
         cols = width / resolution;
         rows = height / resolution;
@@ -94,3 +94,5 @@
         return sum;
     }
 
+  
+  

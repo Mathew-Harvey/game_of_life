@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./public/style.css" />
+    
+    l
     <title>Cellular Automata</title>
 </head>
 
 <body>
-    <h1>Cellular Automata - The Game of Life</h1>
+   
+    <div id="heading"><h1>Cellular Automata<br>The Game of Life</h1></div>
     <section>
         <div id="gameOfLife"></div>
     </section>
@@ -16,6 +19,9 @@
     <header>
 
     </header>
+ 
+    <div id="resetButton">                 
+        <a href="#" class="myButton" onClick="window.location.reload();">Reset The Game of Life</a></div>
     <div class="content">
         <h2>This is a celluar Automaton, speicically John Conway's "Game of Life". While the Game of Life has become
             something of a computational cliché, it is still
@@ -28,10 +34,10 @@
             carefully, after a long period of experimentation, to meet three desiderata:
             <br> <br>
             <ol>
-                <li>There should be no initial pattern for which there is a simple proof that the population can grow
+                    <li>There should be no initial pattern for which there is a simple proof that the population can grow
                     without limit.</li>
                 <br>
-                <li>There should be initial patterns that apparently do grow without limit.</li>
+                    <li>There should be initial patterns that apparently do grow without limit.</li>
                     <br>
                 <li>There should be simple initial patterns that grow and change for a considerable period of time
                     before
@@ -85,7 +91,9 @@
 
 
     <script src="sketch.js"></script>
+    <script src="button.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 
 </body>
 
