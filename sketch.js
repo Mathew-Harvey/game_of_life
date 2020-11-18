@@ -1,88 +1,96 @@
 
+   let gameOfLifeEl = document.querySelector("#gameOfLife");
 
-function make2DArray(cols, rows) {
-    let arr = new Array(cols);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = new Array(rows);
-    }
-    return arr;
-}
-
-let grid;
-let cols;
-let rows;
-let resolution = 5;
-
-
-function setup() {
-    createCanvas(1200, 800)
-    cols = width / resolution;
-    rows = height / resolution;
-    grid = make2DArray(cols, rows);
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-            grid[i][j] = floor(random(2))
+   window.addEventListener('scroll', function(){
+       let value = 1 + window.scrollY/-600;
+       gameOfLifeEl.style.opacity = value
+   })
+  
+    function make2DArray(cols, rows) {
+        let arr = new Array(cols);
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = new Array(rows);
         }
+        return arr;
     }
-}
 
-function draw() {
-    background(0)
+    let grid;
+    let cols;
+    let rows;
+    let resolution = 5;
 
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-            let x = i * resolution
-            let y = j * resolution
-            if (grid[i][j] == 1) {
-                fill (55, 55, 55)
-           
-                stroke(233, 233, 233)
-          
-                circle(x, y, resolution - 1, );
+
+    function setup() {
+        var canvas = createCanvas(1200, 1000)
+        canvas.parent('gameOfLife')
+        cols = width / resolution;
+        rows = height / resolution;
+        grid = make2DArray(cols, rows);
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                grid[i][j] = floor(random(2))
             }
         }
     }
 
-    let next = make2DArray(cols, rows);
+    function draw() {
+        background(0)
 
-    // compute next based on grid
-    for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-            let state = grid[i][j];
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                let x = i * resolution
+                let y = j * resolution
+                if (grid[i][j] == 1) {
+                    fill(55, 55, 55)
 
+                    stroke(233, 233, 233)
 
-            //count live neighbors
-
-            let sum = 0
-            let neighbors = countNeighbors(grid, i, j);
-
-            if (state == 0 && neighbors == 3) {
-                next[i][j] = 1
-                
-            } else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
-                next[i][j] = 0;
-            } else {
-                next[i][j] = state;
+                    circle(x, y, resolution - 1,);
+                }
             }
-
         }
-    }
-    grid = next;
-}
+
+        let next = make2DArray(cols, rows);
+
+        // compute next based on grid
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                let state = grid[i][j];
 
 
+                //count live neighbors
 
-function countNeighbors(grid, x, y) {
-    let sum = 0
-    for (let i = -1; i < 2; i++) {
-        for (let j = -1; j < 2; j++) {
+                let sum = 0
+                let neighbors = countNeighbors(grid, i, j);
 
-            let col = (x + i + cols) % cols;
-            let row = (y + j + rows) % rows;
+                if (state == 0 && neighbors == 3) {
+                    next[i][j] = 1
 
-            sum += grid[col][row]
+                } else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
+                    next[i][j] = 0;
+                } else {
+                    next[i][j] = state;
+                }
+
+            }
         }
+        grid = next;
     }
-    sum -= grid[x][y]
-    return sum;
-}
+
+
+
+    function countNeighbors(grid, x, y) {
+        let sum = 0
+        for (let i = -1; i < 2; i++) {
+            for (let j = -1; j < 2; j++) {
+
+                let col = (x + i + cols) % cols;
+                let row = (y + j + rows) % rows;
+
+                sum += grid[col][row]
+            }
+        }
+        sum -= grid[x][y]
+        return sum;
+    }
+

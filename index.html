@@ -1,20 +1,92 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./public/style.css" />
-        <title>Title</title>
-    </head>
-    <body>
 
-        <header>
-            <h1>Header</h1>
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/style.css" />
+    <title>Cellular Automata</title>
+</head>
 
-        <div id="gameOfLife", class="gameOfLife">  <script src="sketch.js"></script> </div>
+<body>
+    <h1>Cellular Automata - The Game of Life</h1>
+    <section>
+        <div id="gameOfLife"></div>
+    </section>
 
-      
-        <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
-        
-    </body>
+    <header>
+
+    </header>
+    <div class="content">
+        <h2>This is a celluar Automaton, speicically John Conway's "Game of Life". While the Game of Life has become
+            something of a computational cliché, it is still
+            important to build it from scratch as its core principles are tied
+            directly to a core goal—simulating the natural world with code.
+
+            The basic idea is to start with a simple configuration of counters (organisms), one to a cell, then observe
+            how
+            it changes as you apply Conway's "genetic laws" for births, deaths, and survivals. Conway chose his rules
+            carefully, after a long period of experimentation, to meet three desiderata:
+            <br> <br>
+            <ol>
+                <li>There should be no initial pattern for which there is a simple proof that the population can grow
+                    without limit.</li>
+                <br>
+                <li>There should be initial patterns that apparently do grow without limit.</li>
+                    <br>
+                <li>There should be simple initial patterns that grow and change for a considerable period of time
+                    before
+                    coming to end in three possible ways: fading away completely (from overcrowding or becoming too
+                    sparse),
+                    settling into a stable configuration that remains unchanged thereafter, or entering an oscillating
+                    phase
+                    in which they repeat an endless cycle of two or more periods.</li>
+                    <br>
+            </ol>
+            <br>
+            In brief, the rules should be such as to make the behavior of the population unpredictable.
+            <br>
+            Conways genetic laws are delightfully simple. First note that each cell of the checkerboard (assumed to be
+            an
+            infinite plane) has eight neighboring cells, four adjacent orthogonally, four adjacent diagonally. The rules
+            are: <br><br>
+            <ol>
+                <li>Survivals. Every counter with two or three neighboring counters survives for the next generation.</li>
+                    <br>
+                <li>Deaths. Each counter with four or more neighbors dies (is removed) from overpopulation. Every
+                    counter
+                    with one neighbor or none dies from isolation. </li>
+                    <br>
+                <li>Births. Each empty cell adjacent to exactly three neighbors--no more, no fewer--is a birth cell. A
+                    counter is placed on it at the next move. </li>
+                    <br>
+            </ol> <br>
+            It is important to understand that all births and deaths occur simultaneously. Together they constitute a
+            single
+            generation or, as we shall call it, a "move" in the complete "life history" of the initial configuration.
+            Conway
+            recommends the following procedure for making the moves:
+            <br><br>
+            <ol>
+                <li>Start with a pattern consisting of black counters.</li>
+                    <br>
+                <li>Locate all counters that will die. Identify them by putting a black counter on top of each.</li>
+                    <br>
+                <li>Locate all vacant cells where births will occur. Put a white counter on each birth cell.</li>
+                    <br>
+                <li>After the pattern has been checked and double-checked to make sure no mistakes have been made,
+                    remove all the
+                    dead counters (piles of two) and replace all newborn white organisms with black counters.</li>
+            </ol>
+
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </h2>
+
+    </div>
+
+
+    <script src="sketch.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
+
+</body>
+
 </html>
